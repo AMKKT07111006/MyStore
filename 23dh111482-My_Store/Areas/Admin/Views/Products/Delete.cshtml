@@ -1,0 +1,36 @@
+﻿@model _23dh111482_My_Store.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<head>
+    <style>
+        #iDetails {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            height: 250px;
+            max-width: 250px;
+        }
+    </style>
+</head>
+
+<h2 class="bg-success">XÓA SẢN PHẨM</h2>
+
+
+<h4 class="alert-danger">Bạn có chắc chắn muốn xóa danh mục này?</h4>
+
+@Html.Partial("DetailsDelProdPV", Model)
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color" style="margin-left:33%"  >
+            <input type="submit" value="Xóa" class="btn btn-primary" />
+            @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
